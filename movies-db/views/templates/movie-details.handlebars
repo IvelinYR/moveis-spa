@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="./../../assets/css/movie-details.css">
+
+<div class="container">
+    <div id="movie-detailed-container">
+
+        <div class="top-container">
+            <div class="movie-header">
+                <div class="movie-title-container">
+                    <h1>{{title}}</h1>
+                    <big>{{year}}</big>
+                </div>
+
+                <div class="rating-container">
+                    <h2 style="display: inline-block">{{rating}}</h2>
+                    <small class="out-of">/10</small>
+                </div>
+            </div>
+
+            <div class="clear"></div>
+
+            <div class="trailer-container">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{key}}?rel=0&amp;controls=0&amp;showinfo=0"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </div>
+
+        <div class="middle-container">
+            <div class="movie-description-container">
+                <p>{{description}}</p>
+            </div>
+        </div>
+
+        <div class="bottom-container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-md-offset-3 text-center">
+                        <div class="btn-group">
+                            <a href="javascript:fbShareCurrentPage()" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u='+escape(window.location.href)+'&t='+document.title, '','menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=500');return false;" 
+                            class="btn btn-default" style="background-color: #3b5998;">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                            <a href="https://twitter.com/intent/tweet?text={{description}}" onclick="window.open(this.href, 'mywin','left=20,top=20,width=500,height=500,toolbar=1,resizable=0'); return false;" 
+                            class="btn btn-default" style="background-color:#9AD4FF;">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

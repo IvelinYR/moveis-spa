@@ -1,0 +1,61 @@
+<link rel="stylesheet" href="./../../assets/css/gallery.css">
+
+<div class="container">
+
+    <div class="row">
+        <div class="col-lg-12 col-sm-12 col-xs-12 col-md-12">
+            {{#if isWatchlist}}
+            <h1 class="page-header">{{username}}'s
+                <small>Watchlist</small>
+            </h1>
+            {{else}}
+            <h1 class="page-header">Movies
+                <small>Genre</small>
+            </h1>
+            {{/if}}
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+
+                {{#movies}}
+                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12 portfolio-item">
+                    <div class="movie-container" movie-id="{{id}}">
+                        <div class="img-container" style="background: url({{posterSrc}});" onclick="window.location='#/movies/detailed/{{id}}';"></div>
+
+                        <div class="movie-caption-container">
+                            <h2 class="movie-title">{{title}}</h2>
+                            <br>
+                            <p><em>{{description}}</em></p>
+                        </div>
+
+                        {{#if isLoggedIn}}
+                            {{#if isWatchlist}}
+                            <div class="remove-from-watchlist-container" movie-id="{{id}}">
+                                <form action="#/account/remove-from-watchlist/{{id}}" method="POST">
+                                    <button class="remove-from-watchlist-btn">
+                                        <i class="material-icons" style="font-size: 5rem; ">bookmark</i>
+                                    </button>
+                                </form>
+                            </div>  
+                            {{else}}
+                            <div class="add-to-watchlist-container" movie-id="{{id}}">
+                                <form action="#/account/add-to-watchlist/{{id}}" method="POST">
+                                    <button class="add-to-watchlist-btn">
+                                        <i class="material-icons" style="font-size: 5rem; ">bookmark_border</i>
+                                    </button>
+                                </form>
+                            </div>   
+                            {{/if}}     
+                        {{/if}}     
+                        
+                    </div>
+                </div>         
+                {{/movies}}
+
+        </div>
+    </div>
+</div>
+
+<script src="./../../assets/scripts/gallery.js"></script>
